@@ -1,0 +1,16 @@
+{
+  "id": "example-german",
+  "name": "Beispiel: Tiere",
+  "language": "German",
+  "lang": "de",
+  "description": "Ein kleines Beispiel für deutsche Wörter. The meaning on the back is Persian here, but you can use any language.",
+  "sections": [
+    {
+      "name": "Haustiere",
+      "words": [
+        ["der Hund", "noun", "سگ", "ein Tier, das Menschen als Haustier halten", "Unser Hund bellt, wenn jemand kommt.", "Ich gehe jeden Abend mit dem Hund spazieren.", "Hunde sind sehr treue Tiere."],
+        ["die Katze", "noun", "گربه", "ein kleines Haustier mit weichem Fell", "Die Katze schläft auf dem Sofa.", "Meine Katze fängt gern Mäuse.", "Hast du eine Katze oder einen Hund?"]
+      ]
+    }
+  ]
+}

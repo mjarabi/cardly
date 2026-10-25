@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' media: data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self' media:">
+  <title>Cardly</title>
+  <link rel="stylesheet" href="../node_modules/katex/dist/katex.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div id="titlebar"></div>
+  <div id="app">
+    <aside id="sidebar" class="glass"></aside>
+    <main id="main"></main>
+  </div>
+  <div id="modal-root"></div>
+  <div id="toasts"></div>
+
+  <script src="../node_modules/katex/dist/katex.min.js"></script>
+  <script src="../src/fsrs.js"></script>
+  <script src="../src/sm2.js"></script>
+  <script src="../src/smartadd.js"></script>
+  <script src="../src/looks.js"></script>
+  <script src="render.js"></script>
+  <script src="speech.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

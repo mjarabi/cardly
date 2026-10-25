@@ -1,0 +1,41 @@
+Cardly - Copyright (c) 2026 Mohammad Javad Arabi (GitHub: mjarabi). All rights reserved.
+
+This is not open-source software. The source code is published so that people can
+read it and so that the app can be downloaded and used. Everything not clearly
+allowed below is reserved by the copyright holder.
+
+YOU MAY
+  1. Download and install the released app and use it for yourself, for free.
+  2. Read the source code in this repository to learn from it.
+  3. Make a fork on GitHub, only as far as GitHub's Terms of Service allow for
+     viewing and for suggesting changes back to this repository (pull requests).
+
+YOU MAY NOT, without written permission from the copyright holder
+  1. Copy, reuse or republish the source code, or any part of it, in another
+     project, app, website or product.
+  2. Modify the app or build your own version of it, and distribute it
+     (free or paid, under this name or any other name).
+  3. Sell, rent or sublicense the app or its code, or include it in anything
+     that is sold.
+  4. Remove or change this license, the copyright notice or the author's name.
+  5. Use the name "Cardly" or the app icon for another product.
+
+CONTRIBUTIONS
+  If you send a change, a pull request, or a content file (for example a word
+  list in the "library" folder), you confirm that you wrote it or have the right
+  to share it, and you allow the copyright holder to use, change and distribute it
+  as part of Cardly, including under a different license in the future.
+  You keep the copyright in your own work.
+
+THIRD-PARTY COMPONENTS
+  Cardly includes and uses software and data made by others (see
+  THIRD-PARTY-NOTICES.md). They stay under their own licenses. This license
+  does not apply to them.
+
+NO WARRANTY
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. THE AUTHOR IS NOT
+  LIABLE FOR ANY CLAIM, DAMAGE OR LOSS OF DATA (including lost flashcards) THAT
+  ARISES FROM USING IT. Keep backups of your cards.
+
+Permission requests: open an issue in this repository or contact the author
+through his GitHub profile (https://github.com/mjarabi).

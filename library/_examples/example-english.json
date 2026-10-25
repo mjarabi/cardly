@@ -1,0 +1,22 @@
+{
+  "id": "example-english",
+  "name": "Example topic",
+  "language": "English",
+  "lang": "en",
+  "description": "A tiny topic that shows the file format.",
+  "sections": [
+    {
+      "name": "First section",
+      "words": [
+        ["apple", "noun", "سیب", "a round fruit with red, green or yellow skin", "She ate an apple after lunch.", "This apple is very sweet.", "He bought a bag of apples."],
+        ["current", "noun", "جریان", ["a flow of electricity through a wire", "a movement of water or air in one direction"], "The current in this circuit is two amps.", "A strong current flows through the cable.", "The current carried the boat downstream."]
+      ]
+    },
+    {
+      "name": "Second section",
+      "cards": [
+        { "front": "river\n~~noun~~", "back": "رود\n\na long natural stream of water\n\n- The river is very wide here.", "tags": ["nature"] }
+      ]
+    }
+  ]
+}

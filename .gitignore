@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.log
+.env
+*.wav
+# Your personal data is stored in %APPDATA%\Cardly, not in this folder.
+bundled-voices/

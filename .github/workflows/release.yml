@@ -1,0 +1,42 @@
+name: Build Windows installer
+
+# Runs when you push a tag like v1.0.0, or when you press "Run workflow".
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Download the natural voice model (it is packed into the installer)
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-en-v0_19.tar.bz2 -OutFile kokoro.tar.bz2
+          New-Item -ItemType Directory -Force -Path bundled-voices | Out-Null
+          & "$env:SystemRoot\System32\tar.exe" -xjf kokoro.tar.bz2 -C bundled-voices
+          Get-ChildItem bundled-voices
+      - run: npm run dist
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Cardly-Windows
+          path: |
+            dist/*.exe
+      - name: Attach to the GitHub release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.exe

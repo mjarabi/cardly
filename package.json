@@ -1,0 +1,29 @@
+{
+  "name": "cardly",
+  "productName": "Cardly",
+  "version": "1.0.0",
+  "description": "Spaced-repetition flashcard app for Windows",
+  "repository": "github:mjarabi/cardly",
+  "homepage": "https://github.com/mjarabi/cardly",
+  "author": "Mohammad Javad Arabi",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test": "node test/run.js && node test/ai.js && node test/tts.js && node test/anki.js && node test/library.js",
+    "dist": "electron-builder --win --config electron-builder.config.js",
+    "library": "node tools/build-library-index.js"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "katex": "^0.16.11",
+    "sherpa-onnx-node": "1.12.23",
+    "sherpa-onnx-win-x64": "1.12.23",
+    "sql.js": "^1.11.0"
+  },
+  "devDependencies": {
+    "electron": "^37.0.0",
+    "electron-builder": "^26.0.0"
+  }
+}

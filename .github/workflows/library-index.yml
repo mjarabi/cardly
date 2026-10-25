@@ -1,0 +1,43 @@
+name: Library index
+
+# Checks every file in the library folder on pull requests,
+# and rebuilds library/index.json after changes are pushed to main.
+on:
+  pull_request:
+    paths:
+      - 'library/**'
+      - 'src/library.js'
+      - 'src/topicpack.js'
+  push:
+    branches: [main]
+    paths:
+      - 'library/**'
+      - '!library/index.json'
+
+permissions:
+  contents: write
+
+jobs:
+  library:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check the files
+        if: github.event_name == 'pull_request'
+        run: node tools/build-library-index.js --check
+      - name: Rebuild the index
+        if: github.event_name == 'push'
+        run: node tools/build-library-index.js
+      - name: Save the index
+        if: github.event_name == 'push'
+        run: |
+          if [ -n "$(git status --porcelain library/index.json)" ]; then
+            git config user.name "github-actions"
+            git config user.email "github-actions@users.noreply.github.com"
+            git add library/index.json
+            git commit -m "Update library index"
+            git push
+          fi
