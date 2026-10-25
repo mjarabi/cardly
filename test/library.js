@@ -182,7 +182,7 @@ t('the index lists good files, ignores "_" folders and index.json, and reports m
   assert.strictEqual(r.index.items[0].words, 1);
   assert.strictEqual(r.problems.length, 2);
   assert.ok(r.problems.some((p) => /bad\.json/.test(p)) && r.problems.some((p) => /dup\.json.*already used/.test(p)));
-  fs.rmSync(dir, { recursive: true, force: true });
+  try { fs.rmSync(dir, { recursive: true, force: true }); } catch (e) { /* cleaned up by the system later */ }
 });
 t('the real library folder passes its own check', () => {
   const r = build(path.join(__dirname, '..', 'library'));

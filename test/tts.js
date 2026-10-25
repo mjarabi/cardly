@@ -153,6 +153,6 @@ function fakeSherpa(withGenCfg) {
   });
   await t('11 voices listed', () => assert.strictEqual(VOICES.length, 11));
 
-  fs.rmSync(root, { recursive: true, force: true });
+  try { fs.rmSync(root, { recursive: true, force: true }); } catch (e) { /* cleaned up by the system later */ }
   console.log(`\n${passed} natural-voice tests passed`);
 })();

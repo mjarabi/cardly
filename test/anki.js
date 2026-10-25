@@ -179,10 +179,12 @@ function makeNew(file, unicase) {
 }
 
 /** a query function over a database file or buffer, like the one the app gives the reader */
+const openDbs = [];
 function openQuery(bytes) {
   const f = path.join(tmp, 'open-' + Math.random().toString(36).slice(2) + '.db');
   fs.writeFileSync(f, bytes);
   const db = new DatabaseSync(f);
+  openDbs.push(db);
   return (sql) => db.prepare(sql).all().map((r) => Object.values(r));
 }
 
@@ -494,7 +496,9 @@ setOpener(async (buf) => ({ query: openQuery(buf), close() {} }));
     }
     if (!JSZip) console.log('  (jszip is not installed here, package tests skipped; run npm install)');
     else await packageTests();
-    fs.rmSync(tmp, { recursive: true, force: true });
+    // Windows cannot delete a file that is still open, so close every database first
+    for (const d of openDbs) { try { d.close(); } catch (e) { /* already closed */ } }
+    try { fs.rmSync(tmp, { recursive: true, force: true }); } catch (e) { /* temp files are cleaned up by the system later */ }
     console.log(`\n${passed} tests passed` + (process.exitCode ? ' — some tests failed' : ''));
   })();
 
